@@ -35,13 +35,13 @@ if (isset($_POST['submit'])) {
 			    BASIC SHOUTBOX WITH PHP
 			  </div>
 				
-				<div class="box1">
-					<ul class="u">
+				<div class="box1 card-1">
+					<ul class="list-group">
 						<?php $alldata = $shout->getAllData();
 							if ($alldata) {
 								while($data = $alldata->fetch_assoc()) { ?>
 									
-									<li> <?php  echo $data['time'] ?> : <b><?php  echo $data['name'] ?></b><?php echo $data['sms'] ?></li>
+									<li class="list-group-item list-group-item-success"> <?php  echo $data['time'] ?> : <b><?php  echo $data['name'] ?></b> <?php echo $data['sms'] ?></li>
 
 								<?php }
 							}
@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
 					</ul>
 				</div>
 
-				<div class="box2">
+				<div class="box2 card-1">
 					
 					<form class="form-horizontal" method="post">
 					  <div class="form-group">
