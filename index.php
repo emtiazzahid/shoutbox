@@ -81,12 +81,20 @@ if (isset($_POST['submit'])) {
 
 
 
-			  <div class="panel-footer">Source :: </div>
+			  <div class="panel-footer">Source :: <a href="https://github.com/emtiazzahid/shoutbox">github repository link</a>
+				<br>
+				<a aria-label="Follow @emtiazzahid on GitHub" data-count-aria-label="# followers on GitHub" data-count-api="/users/emtiazzahid#followers" data-count-href="/emtiazzahid/followers" data-style="mega" href="https://github.com/emtiazzahid" class="github-button">Follow @emtiazzahid</a><br>
+
+				<a aria-label="Star emtiazzahid/github-buttons on GitHub" data-count-aria-label="# shoutbox on GitHub" data-count-api="/repos/emtiazzahid/github-buttons#shoutbox" data-count-href="/emtiazzahid/github-buttons/shoutbox" data-style="mega" data-icon="octicon-star" href="https://github.com/emtiazzahid/shoutbox" class="github-button">Star</a>
+				<!-- Place this tag in your head or just before your close body tag. -->
+				
+
+			  </div>
 			</div>
 		</div>	  
 	</div>
 
-
+	<script async defer src="https://buttons.github.io/buttons.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
