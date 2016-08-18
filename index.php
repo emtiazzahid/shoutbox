@@ -1,3 +1,20 @@
+<?php include 'lib/shout.php'; 
+$shout = new shout();
+
+if (isset($_POST['submit'])) {
+	$shoutdata = $shout->insertSms($_POST);
+}
+//if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//	$shoutdata = $shout->insertSms($_POST);
+//}
+//else
+	//echo "no data";
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,33 +37,37 @@
 				
 				<div class="box1">
 					<ul class="u">
-						<li>9:15 PM: <b>Zahid</b> Hi I am zahid</li>
-						<li>9:15 PM: <b>Zahid</b> Hi I am zahid</li>
-						<li>9:15 PM: <b>Zahid</b> Hi I am zahid</li>
-						<li>9:15 PM: <b>Zahid</b> Hi I am zahid</li>
-						<li>9:15 PM: <b>Zahid</b> Hi I am zahid</li>
-						<li>9:15 PM: <b>Zahid</b> Hi I am zahid</li>
+						<?php $alldata = $shout->getAllData();
+							if ($alldata) {
+								while($data = $alldata->fetch_assoc()) { ?>
+									
+									<li> <?php  echo $data['time'] ?> : <b><?php  echo $data['name'] ?></b><?php echo $data['sms'] ?></li>
+
+								<?php }
+							}
+						 ?>
+						
 					</ul>
 				</div>
 
 				<div class="box2">
 					
-					<form class="form-horizontal">
+					<form class="form-horizontal" method="post">
 					  <div class="form-group">
 					    <label for="name" class="col-sm-2 control-label">Name</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="name" placeholder="Your Name">
+					      <input type="text" class="form-control" id="name" name="name" placeholder="Your Name">
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <label for="sms" class="col-sm-2 control-label">SMS</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="sms" placeholder="Your Massage">
+					      <input type="text" class="form-control" id="sms" name="sms" placeholder="Your Massage">
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <div class="col-sm-offset-2 col-sm-10">
-					      <button type="submit" class="btn btn-default">Submit</button>
+					      <button type="submit" name="submit" class="btn btn-default">Submit</button>
 					    </div>
 					  </div>
 					</form>
